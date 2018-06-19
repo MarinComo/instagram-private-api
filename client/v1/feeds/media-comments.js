@@ -16,11 +16,11 @@ var Comment = require('../comment');
 
 
 MediaCommentsFeed.prototype.getCursor = function () {
-    if(typeof this.cursor === 'string'){
+    if(typeof this.cursor === 'string' && this.cursor.indexOf('server_cursor') > -1){
       this.cursor = JSON.parse(this.cursor);
     }
 
-    return this.cursor ? this.cursor.server_cursor : this.cursor;
+    return this.cursor && this.cursor.hasOwnProperty('server_cursor') ? this.cursor.server_cursor : this.cursor;
 };
 
 MediaCommentsFeed.prototype.get = function () {
