@@ -248,5 +248,6 @@ describe('Sessions', function () {
         require('./cases/feeds/timeline');
         require('./cases/feeds/account-following');
         require('./cases/feeds/account-followers');
+        require('./cases/feeds/user-tags-media');
     });
 });
